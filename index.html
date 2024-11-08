@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site para Minha Namorada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="/media/1.jpg" alt="Foto 1">
+            <img src="/media/2.jpg" alt="Foto 2">
+            <img src="/media/3.jpg" alt="Foto 3">
+            <img src="/media/4.jpg" alt="Foto 4">
+            <img src="/media/5.jpg" alt="Foto 5">
+        </div>
+        <div class="carousel-dots">
+            <span class="dot" onclick="goToImage(0)"></span>
+            <span class="dot" onclick="goToImage(1)"></span>
+            <span class="dot" onclick="goToImage(2)"></span>
+            <span class="dot" onclick="goToImage(3)"></span>
+            <span class="dot" onclick="goToImage(4)"></span>
+        </div>
+    </div>
+
+    
+    <div class="description">
+        <p>Este site é dedicado ao nosso amor, sempre crescendo e se fortalecendo a cada segundo que passa!</p>
+    </div>
+
+    
+    <div class="time-counter">
+        <div><span id="years">0</span> Anos</div>
+        <div><span id="months">0</span> Meses</div>
+        <div><span id="days">0</span> Dias</div>
+        <div><span id="hours">0</span> Horas</div>
+        <div><span id="minutes">0</span> Minutos</div>
+        <div><span id="seconds">0</span> Segundos</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

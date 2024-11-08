@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+    color: #333;
+}
+
+.carousel {
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    border: solid 5px rgb(0, 47, 255);
+    animation: borderColorChange 5s infinite;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.carousel-images img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #e70707;
+}
+
+.description {
+    margin: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 0 10px;
+}
+
+.time-counter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+    gap: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.time-counter div {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: fixed;
+    top: -10px;
+    left: 0;
+    font-size: 20px;
+    color: red;
+    opacity: 1;
+    animation: fall linear;
+    pointer-events: none; 
+}
+
+@keyframes borderColorChange {
+    0% {
+        border-color: rgb(0, 47, 255); 
+    }
+    25% {
+        border-color: rgb(255, 0, 47);
+    }
+    50% {
+        border-color: rgb(0, 255, 47);
+    }
+    75% {
+        border-color: rgb(255, 255, 0); 
+    }
+    100% {
+        border-color: rgb(0, 47, 255); 
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel {
+        max-width: 100%;
+    }
+
+    .description {
+        font-size: 1em;
+    }
+
+    .time-counter div {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+
+    .carousel-images img {
+        width: 100%;
+    }
+}
