@@ -26,30 +26,36 @@ function goToImage(index) {
     showImage(index);
 }
 
+
+
 // Contador de Tempo 
-const namoroInicio = new Date("2024-01-12"); 
-
 function updateCounter() {
+    const namoroInicio = new Date("2024-01-12");
     const now = new Date();
-    let diff = now - namoroInicio;
+    
 
-    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-    diff -= years * (1000 * 60 * 60 * 24 * 365);
-    
-    const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
-    diff -= months * (1000 * 60 * 60 * 24 * 30);
-    
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * (1000 * 60 * 60 * 24);
-    
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    diff -= hours * (1000 * 60 * 60);
-    
-    const minutes = Math.floor(diff / (1000 * 60));
-    diff -= minutes * (1000 * 60);
-    
-    const seconds = Math.floor(diff / 1000);
+    let years = now.getFullYear() - namoroInicio.getFullYear();
+    let months = now.getMonth() - namoroInicio.getMonth();
+    let days = now.getDate() - namoroInicio.getDate();
 
+    // ajustar os dias se o dia for menor que o inicio
+    if (days < 0){
+        months--;
+        const previousMonth = new Date(now.getFullYear(), now.getMonth(),
+        days += previousMonth.getDate());
+    }
+
+    // ajuste de meses se o atual for menor que o de inicio
+    if (months < 0){
+        years--;
+        months += 12;
+    }
+    
+   let hours = now.getHours() - namoroInicio.getHours();
+   let minutes = now.getMinutes() - namoroInicio.getMinutes();
+   let seconds = now.getSeconds() - namoroInicio.getSeconds();
+
+    //atualizar os dados para o html
     document.getElementById("years").textContent = years;
     document.getElementById("months").textContent = months;
     document.getElementById("days").textContent = days;
